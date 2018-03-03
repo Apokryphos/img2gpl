@@ -6,6 +6,6 @@ Creates a [GIMP](https://www.gimp.org/) .gpl palette file from an image.
 that can be used to create palettes from images.*
 
 ## Usage
-img2gpl [IMAGE FILENAME] [PALETTE FILENAME]
+img2gpl IMAGE [PALETTE]
 
 Requires [Pillow](https://github.com/python-pillow/Pillow).

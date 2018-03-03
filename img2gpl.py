@@ -1,18 +1,24 @@
 # Requires Pillow
 # https://github.com/python-pillow/Pillow
 #
-# Usage: img2gpl [IMAGE FILENAME] [PALETTE FILENAME]
+# Usage: img2gpl IMAGE [PALETTE]
+import os
 import sys
 from PIL import Image
 
 argc = len(sys.argv)
 
-if (argc < 3 or argc > 3):
-	print "Usage: img2gpl [IMAGE FILENAME] [PALETTE FILENAME]"
+if (argc < 2 or argc > 3):
+	print "Usage: img2gpl IMAGE [PALETTE]"
 	sys.exit(1)
 
 image_filename = sys.argv[1]
-palette_filename = sys.argv[2]
+
+# If palette filename is omitted, use image filename with replaced extension
+if argc == 2:
+	palette_filename = os.path.splitext(image_filename)[0]+'.gpl'
+else:
+	palette_filename = sys.argv[2]
 
 image = Image.open(image_filename).convert('RGB')
 
